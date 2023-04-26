@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
+import { UsuarioModel } from '../modelos/usuario.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeguridadService {
-
-  constructor() { }
-
   urlBase: string = ConfiguracionRutasBackend.urlSeguridad;
+
   constructor(private http: HttpClient) {
     this.validacionDeSesion();
   }
-
 
   /**
    * Identificar usuario

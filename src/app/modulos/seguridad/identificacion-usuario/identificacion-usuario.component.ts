@@ -35,6 +35,22 @@ export class IdentificacionUsuarioComponent {
     } else {
       let usuario = this.obtenerFormGroup['usuario'].value;
       let clave = this.obtenerFormGroup['clave'].value;
+      let claveCifrada = MD5(clave).toString();
+      this.servicioSeguridad.IdentificarUsuario(usuario, claveCifrada).subscribe({
+        next: (datos: UsuarioModel) => {
+          if (datos._id == undefined || datos._id == null) {
+            alert("Credenciales incorrectas o falta la validación del correo electrónico.");
+          } else {
+            console.log(datos);
+            if (this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)) {
+              this.router.navigate(["/seguridad/2fa"]);
+            }
+          }
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
     }
   }
 
