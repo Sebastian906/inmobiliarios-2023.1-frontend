@@ -73,7 +73,7 @@ export class SeguridadService {
     }
   }
 
- /**
+  /**
   * Validar 2fa
   * @param idUsuario
   * @param codigo
@@ -86,6 +86,9 @@ export class SeguridadService {
       });
     }
 
+    RegistrarUsuarioPublico(datos: any): Observable<UsuarioModel> {
+      return this.http.post<UsuarioModel>(`${this.urlBase}usuario-publico`, datos);
+    }
 
     /**
    * Guarda en local storage la información del usuario validado
