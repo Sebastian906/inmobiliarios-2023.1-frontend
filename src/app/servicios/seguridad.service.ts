@@ -17,8 +17,8 @@ export class SeguridadService {
 
   /**
    * Identificar usuario
-   * @param usuario 
-   * @param clave 
+   * @param usuario
+   * @param clave
    * @returns datos del usuario validado
    */
   IdentificarUsuario(usuario: string, clave: string): Observable<UsuarioModel> {
@@ -43,10 +43,24 @@ export class SeguridadService {
     }
   }
 
+  /**
+   * Cerrando sesión
+   */
+  RemoverDatosUsuarioValidado() {
+    let datosUsuario = localStorage.getItem("datos-usuario");
+    let datosSesion = localStorage.getItem("datos-sesion");
+    if(datosUsuario) {
+      localStorage.removeItem("datos-usuario");
+    }
+    if(datosSesion) {
+      localStorage.removeItem("datos-sesion");
+    }
+    this.ActualizarComportamientoUsuario(new UsuarioValidadoModel());
+  }
 
   /**
    * Busca los datos en localstorage de un usuario
-   * @returns 
+   * @returns
    */
   ObtenerDatosUsuarioLS(): UsuarioModel | null{
     let datosLS = localStorage.getItem("datos-usuario");
@@ -61,9 +75,9 @@ export class SeguridadService {
 
  /**
   * Validar 2fa
-  * @param idUsuario 
-  * @param codigo 
-  * @returns 
+  * @param idUsuario
+  * @param codigo
+  * @returns
   */
     ValidarCodigo2FA(idUsuario: string, codigo: string): Observable<UsuarioValidadoModel> {
       return this.http.post<UsuarioValidadoModel>(`${this.urlBase}verificar-2fa`, {
@@ -85,10 +99,16 @@ export class SeguridadService {
       } else {
         let datosString = JSON.stringify(datos);
         localStorage.setItem("datos-sesion", datosString);
+        this.ActualizarComportamientoUsuario(datos);
         return true;
       }
     }
 
+    RecuperarClavePorUsuario(usuario: string): Observable<UsuarioModel> {
+      return this.http.post<UsuarioModel>(`${this.urlBase}recuperar-clave`, {
+        correo: usuario,
+      });
+    }
 
     /**Administracion de la sesion de usuario */
 
@@ -109,5 +129,5 @@ export class SeguridadService {
     ActualizarComportamientoUsuario(datos: UsuarioValidadoModel){
       return this.datosUsuarioValidado.next(datos);
     }
-  
+
 }
