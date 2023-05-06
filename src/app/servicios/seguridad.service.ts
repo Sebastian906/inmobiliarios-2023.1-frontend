@@ -86,7 +86,7 @@ export class SeguridadService {
       });
     }
 
-    RegistrarUsuarioPublico(datos: any): Observable<UsuarioModel> {
+    RegistrarUsuarioPublico(datos: UsuarioModel): Observable<UsuarioModel> {
       return this.http.post<UsuarioModel>(`${this.urlBase}usuario-publico`, datos);
     }
 

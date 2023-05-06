@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-registro-publico-usuarios',
@@ -35,25 +36,26 @@ export class RegistroPublicoUsuariosComponent {
       celular: ['', [Validators.required, Validators.minLength(12)]],
       ciudad: ['', [Validators.required]],
       fechaDeNacimiento: ['', [Validators.required]],
-      cedula: ['', [Validators.required, Validators.minLength(10)]],
-      clave: ['', [Validators.minLength(12)]],
+      cedula: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
 
   Registrarse() {
+    const FORMATO_ENTRADA = 'YYYY-MM-DD';
     let campos = this.ObtenerFormGroup;
+    const fecha = moment(campos["fechaDeNacimiento"].value,FORMATO_ENTRADA);
+    const fechaISO = fecha.toISOString();
     let datos = {
       primerNombre: campos["primerNombre"].value,
       segundoNombre: campos["segundoNombre"].value,
       primerApellido: campos["primerApellido"].value,
       segundoApellido: campos["segundoApellido"].value,
       correo: campos["correo"].value,
-      celular: campos["telefono"].value,
+      celular: campos["celular"].value,
       ciudad: campos["ciudad"].value,
-      fechaDeNacimiento: campos["fechaDeNacimiento"].value,
-      cedula: campos["cedula"].value,
-      clave: campos["clave"].value,
-    }
+      fechaDeNacimiento: fechaISO,
+      cedula: campos["cedula"].value
+    } as UsuarioModel;
     this.servicioSeguridad.RegistrarUsuarioPublico(datos).subscribe({
       next: (respuesta:UsuarioModel) => {
         alert("Registro correcto, se ha enviado un mensaje para validar su dirección de correo electrónico.")
