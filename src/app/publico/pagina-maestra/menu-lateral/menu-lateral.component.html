@@ -7,6 +7,6 @@
     <a href="#name"><span class="white-text name">John Doe</span></a>
     <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
   </div></li>
-  <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+  <li *ngFor="let m of listaMenus" routerLink="{{m.ruta}}">{{m.texto}}</li>
 </ul>
 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
