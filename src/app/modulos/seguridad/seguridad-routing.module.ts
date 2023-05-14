@@ -12,27 +12,34 @@ import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.
 import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.component';
 import { combineLatest } from 'rxjs';
 import { EliminarUsuarioComponent } from './usuario/eliminar-usuario/eliminar-usuario.component';
+import { ValidarSesionInactivaGuard } from 'src/app/guardianes/validar-sesion-inactiva.guard';
+import { ValidarSesionActivaGuard } from 'src/app/guardianes/validar-sesion-activa.guard';
 
 const routes: Routes = [
   {
     path: "identificar-usuario",
-    component: IdentificacionUsuarioComponent
+    component: IdentificacionUsuarioComponent,
+    canActivate: [ValidarSesionInactivaGuard]
   },
   {
     path: "cambiar-clave",
-    component: CambioClaveComponent
+    component: CambioClaveComponent,
+    canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: "recuperar-clave",
-    component: RecuperacionClaveComponent
+    component: RecuperacionClaveComponent,
+    canActivate: [ValidarSesionInactivaGuard]
   },
   {
     path: "cerrar-sesion",
-    component: CerrarSesionComponent
+    component: CerrarSesionComponent,
+    canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: "2fa",
-    component: VerificacionDosfaComponent
+    component: VerificacionDosfaComponent,
+    canActivate: [ValidarSesionInactivaGuard]
   },
   {
     path: "registro-publico",
@@ -44,19 +51,23 @@ const routes: Routes = [
   },
   {
     path: "usuario-crear",
-    component: CrearUsuarioComponent
+    component: CrearUsuarioComponent,
+    canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: "usuario-listar",
-    component: ListarUsuarioComponent
+    component: ListarUsuarioComponent,
+    canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: "usuario-editar/:id",
-    component: EditarUsuarioComponent
+    component: EditarUsuarioComponent,
+    canActivate: [ValidarSesionActivaGuard]
   },
   {
     path: "usuario-eliminar",
-    component: EliminarUsuarioComponent
+    component: EliminarUsuarioComponent,
+    canActivate: [ValidarSesionActivaGuard]
   }
 ];
 
