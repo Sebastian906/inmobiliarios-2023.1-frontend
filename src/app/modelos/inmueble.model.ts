@@ -1,7 +1,13 @@
 export class InmuebleModel{
   id?: number;
-  nombre?: string;
-  precioVenta?: number;
-  cantidadDisponible?: number;
-  foto?: string;
+  direccion?: string;
+  valor?: number;
+  venta?: boolean;
+  alquiler?: boolean;
+  IdAsesor?: number;
+  IdTipoInmueble?: number;
+  IdCiudad?: number;
+  InmuebleXFoto?: [];
+  InmuebleXVideo?: [];
+  InmuebleXSolicitud?: [];
 }

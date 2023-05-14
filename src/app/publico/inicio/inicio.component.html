@@ -2,11 +2,15 @@
   <div *ngFor="let r of listaRegistros" class="col s3">
     <div class="card">
       <div class="card-image">
-        <img src="{{r.foto}}">
-        <span class="card-title">{{r.nombre}}</span>
+        <img src="{{r.InmuebleXFoto}}">
+        <span class="card-title">{{r.IdTipoInmueble}}</span>
+        <span class="card-title">{{r.direccion}}</span>
       </div>
       <div class="card-content">
-        <p>El precio del inmueble es: {{r.precioVenta | currency}}. La cantidad disponible es: {{r.cantidadDisponible}}</p>
+        <p>El precio del inmueble es: {{r.valor | currency}}</p>
+      </div>
+      <div class="card-content">
+        <p>Asesor: {{r.IdAsesor}}</p>
       </div>
       <div class="card-action">
         <a routerLink="/detalles-inmueble/{{r.id}}">Ver más</a>
