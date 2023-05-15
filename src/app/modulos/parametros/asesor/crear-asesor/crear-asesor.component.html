@@ -1,1 +1,97 @@
-<p>crear-asesor works!</p>
+<div id="formulario-ingresar-asesor" class="row">
+    <div class="col s12 z-depth-6 card-panel">
+      <form [formGroup]="fGroup" class="ingresoAsesor-form">
+        <div class="row">
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">nombres</i>
+            <input formControlName="nombres" class="name" id="nombres" type="text">
+            <label for="text" data-error="wrong" data-success="right">Nombres</label>
+            <div class="show-errors" *ngIf="obtenerFormGroup['nombres'].errors 
+            && (obtenerFormGroup['nombres'].dirty || obtenerFormGroup['nombres'].touched)">
+            <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">apellidos</i>
+              <input formControlName="apellidos" class="apellido" id="apellidos" type="text">
+              <label for="text" data-error="wrong" data-success="right">Apellidos</label>
+              <div class="show-errors" *ngIf="obtenerFormGroup['apellidos'].errors 
+              && (obtenerFormGroup['apellidos'].dirty || obtenerFormGroup['apellidos'].touched)">
+              <strong>Este campo es obligatorio</strong>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">telefono</i>
+            <input formControlName="telefono" class="telefono" id="telefono" type="text">
+            <label for="text" data-error="wrong" data-success="right">Telefono</label>
+            <div class="show-errors" *ngIf="obtenerFormGroup['telefono'].errors 
+            && (obtenerFormGroup['telefono'].dirty || obtenerFormGroup['telefono'].touched)">
+            <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+      </div>
+        
+        <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">ciudad</i>
+              <input formControlName="ciudad" class="ciudad" id="ciudad" type="text">
+              <label for="text" data-error="wrong" data-success="right">Ciudad</label>
+              <div class="show-errors" *ngIf="obtenerFormGroup['ciudad'].errors 
+              && (obtenerFormGroup['ciudad'].dirty || obtenerFormGroup['ciudad'].touched)">
+              <strong>Este campo es obligatorio</strong>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">mail_outline</i>
+              <input formControlName="email" class="validate" id="email" type="email">
+              <label for="email" data-error="wrong" data-success="right">Email</label>
+              <div class="show-errors" *ngIf="obtenerFormGroup['email'].errors 
+              && (obtenerFormGroup['email'].dirty || obtenerFormGroup['email'].touched)">
+              <strong>Este campo es obligatorio</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix"></i>
+              <input formControlName="fechaDeNacimiento" class="validate" id="fechaDeNacimiento" type="date">
+              <label for="fechaDeNacimiento" data-error="wrong" data-success="right">Fecha de nacimiento</label>
+              <div class="show-errors" *ngIf="obtenerFormGroup['fechaDeNacimiento'].errors 
+              && (obtenerFormGroup['fechaDeNacimiento'].dirty || obtenerFormGroup['fechaDeNacimiento'].touched)">
+              <strong>Este campo es obligatorio</strong>
+              </div>
+            </div>
+          </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">cedula</i>
+              <input formControlName="cedula" class="cedula" id="cedula" type="text">
+              <label for="text" data-error="wrong" data-success="right">Cedula</label>
+              <div class="show-errors" *ngIf="obtenerFormGroup['cedula'].errors 
+              && (obtenerFormGroup['cedula'].dirty || obtenerFormGroup['cedula'].touched)">
+              <strong>Este campo es obligatorio</strong>
+              </div>
+            </div>
+        </div>
+    
+        <div class="row">
+          <div class="input-field col s12">
+            <button (click)="guardarAsesor()" class="btn waves-effect waves-light col s12">Guardar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

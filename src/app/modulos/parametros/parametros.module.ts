@@ -50,6 +50,7 @@ import { CrearVideoComponent } from './video/crear-video/crear-video.component';
 import { EditarVideoComponent } from './video/editar-video/editar-video.component';
 import { EliminarVideoComponent } from './video/eliminar-video/eliminar-video.component';
 import { ListarVideoComponent } from './video/listar-video/listar-video.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 
 @NgModule({
@@ -105,7 +106,9 @@ import { ListarVideoComponent } from './video/listar-video/listar-video.componen
   ],
   imports: [
     CommonModule,
-    ParametrosRoutingModule
+    ParametrosRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ParametrosModule { }
