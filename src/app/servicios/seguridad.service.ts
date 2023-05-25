@@ -123,6 +123,12 @@ export class SeguridadService {
       });
     }
 
+    CambiarClavePorUsuario(usuario: string): Observable<UsuarioModel> {
+      return this.http.post<UsuarioModel>(`${this.urlBase}cambiar-clave`, {
+        clave: usuario,
+      });
+    }
+
     /**Administracion de la sesion de usuario */
 
     datosUsuarioValidado = new BehaviorSubject<UsuarioValidadoModel>(new UsuarioValidadoModel());

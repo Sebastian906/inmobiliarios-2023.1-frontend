@@ -1,1 +1,33 @@
-<p>cambio-clave works!</p>
+<div id="login-page" class="row">
+  <div class="col s12 z-depth-6 card-panel">
+    <form [formGroup]="fGroup" class="login-form">
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock_outline</i>
+          <input formControlName="clave" id="password" type="password">
+          <label for="password">Ingresar nueva contraseña</label>
+          <div class="show-errors" *ngIf="obtenerFormGroup['clave'].errors
+          && (obtenerFormGroup['clave'].dirty || obtenerFormGroup['clave'].touched)">
+          <strong>Este campo es obligatorio</strong>
+          </div>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock_open</i>
+          <input formControlName="clave" id="password" type="password">
+          <label for="password">Verificar nueva contraseña</label>
+          <div class="show-errors" *ngIf="obtenerFormGroup['clave'].errors
+          && (obtenerFormGroup['clave'].dirty || obtenerFormGroup['clave'].touched)">
+          <strong>Este campo es obligatorio</strong>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <button (click)="CambiarClave()" class="btn waves-effect waves-light col s12">Actualizar Contraseña</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
