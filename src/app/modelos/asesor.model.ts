@@ -1,5 +1,5 @@
 export class AsesorModel{
-    _id?: string;
+    id?: string;
     nombres?: string;
     aqpellidos?: string;
     telefono?: string;
