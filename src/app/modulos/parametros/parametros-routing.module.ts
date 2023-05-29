@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: "crear-asesor",
     component: CrearAsesorComponent
+  },
+  {
+    path: "detalles-inmueble/:id",
+    component: ListarInmuebleComponent
   }
 ];
 
