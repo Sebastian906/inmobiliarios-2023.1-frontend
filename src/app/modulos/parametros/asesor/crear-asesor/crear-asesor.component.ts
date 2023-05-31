@@ -5,7 +5,7 @@ import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 import { MD5 } from 'crypto-js';
 import { Router } from '@angular/router';
-import { ParametrosService } from 'src/app/servicios/parametros.service';
+import { ParametrosService } from 'src/app/servicios/parametros/inmueble.service';
 import { AsesorModel } from 'src/app/modelos/asesor.model';
 
 
