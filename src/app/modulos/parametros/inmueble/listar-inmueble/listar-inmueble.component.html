@@ -21,5 +21,17 @@
         <a routerLink="/parametros/inmueble-eliminar/{{r.id}}" class="btn red">Eliminar Registro</a>
       </td>
     </tr>
+    <tr>
+      <td colspan="4">
+        <pagination-controls
+                      (pageChange)="pag = $event; ListarRegistros()"
+                      previousLabel="Anterior"
+                      nextLabel="Siguiente"
+                      screenReaderPaginationLabel="Paginación"
+                      screenReaderPageLabel="Página"
+                      screenReaderCurrentLabel="Página actual">
+        </pagination-controls>
+      </td>
+    </tr>
   </tbody>
 </table>

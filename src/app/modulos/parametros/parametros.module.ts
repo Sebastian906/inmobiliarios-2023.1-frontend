@@ -51,6 +51,7 @@ import { EditarVideoComponent } from './video/editar-video/editar-video.componen
 import { EliminarVideoComponent } from './video/eliminar-video/eliminar-video.component';
 import { ListarVideoComponent } from './video/listar-video/listar-video.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -108,7 +109,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
     CommonModule,
     ParametrosRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class ParametrosModule { }
