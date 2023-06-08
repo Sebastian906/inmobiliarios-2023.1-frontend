@@ -5,18 +5,24 @@ import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion
 import { ConfiguracionRutasBackend } from 'src/app/config/configuracion.rutas.backend';
 import { PaginadorInmuebleModel } from 'src/app/modelos/paginador.inmueble.model';
 import { PaginadorClienteModel } from 'src/app/modelos/paginador.cliente.model';
+import { SeguridadRoutingModule } from 'src/app/modulos/seguridad/seguridad-routing.module';
+import { SeguridadService } from '../seguridad.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InmuebleService {
+  token= "";
   urlBase : string = ConfiguracionRutasBackend.urlParametros;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private servicioSeguridad: SeguridadService) { 
+    this.token = this.servicioSeguridad.ObtenertokenLocalStorage();
+  }
 
   listarRegistros(pag: number): Observable<PaginadorInmuebleModel>{
     let limit = ConfiguracionPaginacion.registroPorPagina;
     let skip = (pag - 1) * limit;
-    return this.http.get<PaginadorInmuebleModel>(`${this.urlBase}inmueble?filter={"limit":${limit}, "skip":${skip}}`);
+    let url = `${this.urlBase}inmueble?filter={"limit":${limit}, "skip":${skip}}`
+    return this.http.get<PaginadorInmuebleModel>(url);
   }
 }
 
