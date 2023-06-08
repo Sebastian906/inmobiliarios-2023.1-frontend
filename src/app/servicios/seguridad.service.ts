@@ -153,15 +153,19 @@ export class SeguridadService {
 
     ConstruirMenuLateral(permisos: PermisoModel[]) {
       let menu: ItemMenuModel[]= [];
+      console.log(permisos);
       permisos.forEach((permiso) => {
-        let datosRuta = ConfiguracionMenuLateral.listaMenus.filter(x => x.id == permiso.menuId);
+        console.log(permiso.permisosId)
+        let datosRuta = ConfiguracionMenuLateral.listaMenus.filter(x => x.id == permiso.permisosId);
         if (datosRuta.length > 0) {
           let item = new ItemMenuModel();
-          item.idMenu = permiso.menuId;
+          item.idMenu = permiso.permisosId;
           item.ruta = datosRuta[0].ruta;
           item.icono = datosRuta[0].icono;
           item.texto = datosRuta[0].texto;
           menu.push(item);
+          console.log("Se ha agregado")
+          console.log(item)
         }
       });
       this.AlmacenarItemsMenuLateral(menu);

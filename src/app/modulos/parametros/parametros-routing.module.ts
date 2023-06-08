@@ -9,6 +9,7 @@ import { CrearClienteComponent } from './cliente/crear-cliente/crear-cliente.com
 import { EditarClienteComponent } from './cliente/editar-cliente/editar-cliente.component';
 import { ListarClienteComponent } from './cliente/listar-cliente/listar-cliente.component';
 import { EliminarClienteComponent } from './cliente/eliminar-cliente/eliminar-cliente.component';
+import { ListarSolicitudComponent } from './solicitud/listar-solicitud/listar-solicitud.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path: "cliente-eliminar/:id",
     component: EliminarClienteComponent
+  },
+  {
+    path: "solicitud-listar/:id",
+    component: ListarSolicitudComponent
   }
 ];
 

@@ -19,10 +19,16 @@ export namespace ConfiguracionMenuLateral {
       texto: "Productos"
     },
     {
-      id: "6433392e786d1a179c569ca1",
+      id: "6481f6a9eec0b9c892e8404a",
       ruta: "/parametros/cliente-listar",
       icono: "<i class='material-icons'>cloud</i>",
       texto: "Clientes"
+    },
+    {
+      id: "64333aea786d1a179c569ca3",
+      ruta: "/parametros/solicitud-listar",
+      icono: "<i class='material-icons'>cloud</i>",
+      texto: "Solicitud"
     }
   ];
 }

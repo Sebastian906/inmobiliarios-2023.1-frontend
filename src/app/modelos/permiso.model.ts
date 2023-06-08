@@ -5,5 +5,5 @@ export class PermisoModel{
   eliminar?: string;
   listar?: string;
   descargar?: string;
-  menuId?: string;
+  permisosId?: string;
 }
