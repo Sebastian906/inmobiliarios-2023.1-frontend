@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion';
 import { InmuebleModel } from 'src/app/modelos/inmueble.model';
-import { InmuebleService } from 'src/app/servicios/parametros/cliente.service';
-import { ParametrosService } from 'src/app/servicios/parametros/inmueble.service';
+import { InmuebleService } from 'src/app/servicios/parametros/inmueble.service';
 
 @Component({
   selector: 'app-listar-inmueble',
@@ -11,29 +9,21 @@ import { ParametrosService } from 'src/app/servicios/parametros/inmueble.service
 })
 export class ListarInmuebleComponent {
   listaRegistros:InmuebleModel[]=[];
-  pag = 1;
-  total = 0;
-  registrosPorPagina = ConfiguracionPaginacion.registroPorPagina;
   constructor(
-    private servicio: InmuebleService
+    private servicioInmueble: InmuebleService
   ){
 
   }
 
   ngOnInit(){
-    this.ListarRegistros();
-  }
-
-  ListarRegistros() {
-    this.servicio.listarRegistros(this.pag).subscribe({
+    this.servicioInmueble.listarRegistros().subscribe({
       next: (datos) => {
-        this.listaRegistros = datos.registros;
-        this.total = datos.totalRegistros;
+        this.listaRegistros = datos;
       },
       error: (err) => {
         alert("Error leyendo la información.")
       }
-    });
+    })
   }
 
 }

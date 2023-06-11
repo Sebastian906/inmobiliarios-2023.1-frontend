@@ -5,7 +5,7 @@ import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 import { MD5 } from 'crypto-js';
 import { Router } from '@angular/router';
-import { ParametrosService } from 'src/app/servicios/parametros/inmueble.service';
+import { InmuebleService } from 'src/app/servicios/parametros/inmueble.service';
 import { AsesorModel } from 'src/app/modelos/asesor.model';
 
 
@@ -19,7 +19,7 @@ export class CrearAsesorComponent {
 
   constructor(
     private fb : FormBuilder,
-    private servicioParametro : ParametrosService,
+    private servicioParametro : InmuebleService,
     private router : Router
   ){
 

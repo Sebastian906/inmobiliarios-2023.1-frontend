@@ -6,7 +6,12 @@
   <thead>
     <tr>
       <th>Inmueble</th>
+      <th>Direccion</th>
       <th>Precio de Venta</th>
+      <th>A la Venta?</th>
+      <th>Alquiler</th>
+      <th>Asesor</th>
+      <th>Ciudad</th>
       <th>Imagen</th>
       <th>Acciones</th>
     </tr>
@@ -14,23 +19,16 @@
   <tbody>
     <tr *ngFor="let r of listaRegistros">
       <td>{{r.id}}</td>
+      <td>{{r.direccion}}</td>
       <td>{{r.valor}}</td>
+      <td>{{r.venta}}</td>
+      <td>{{r.alquiler}}</td>
+      <td>{{r.IdAsesor}}</td>
+      <td>{{r.IdCiudad}}</td>
       <td><img src= "{{r.InmuebleXSolicitud}}" class="imagenListadoRegistros"/></td>
       <td>
         <a routerLink="/parametros/inmueble-editar/{{r.id}}" class="btn orange">Editar Registro</a>&nbsp;
         <a routerLink="/parametros/inmueble-eliminar/{{r.id}}" class="btn red">Eliminar Registro</a>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-        <pagination-controls
-                      (pageChange)="pag = $event; ListarRegistros()"
-                      previousLabel="Anterior"
-                      nextLabel="Siguiente"
-                      screenReaderPaginationLabel="Paginación"
-                      screenReaderPageLabel="Página"
-                      screenReaderCurrentLabel="Página actual">
-        </pagination-controls>
       </td>
     </tr>
   </tbody>

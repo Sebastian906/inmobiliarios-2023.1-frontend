@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { ConfiguracionPaginacion } from 'src/app/config/configuracion.paginacion';
 import { InmuebleModel } from 'src/app/modelos/inmueble.model';
-import { ParametrosService } from 'src/app/servicios/parametros/inmueble.service';
+import { InmuebleService } from 'src/app/servicios/parametros/inmueble.service';
 
 @Component({
   selector: 'app-inicio',
@@ -9,19 +10,23 @@ import { ParametrosService } from 'src/app/servicios/parametros/inmueble.service
 })
 export class InicioComponent {
   listaRegistros: InmuebleModel[] = [];
-  constructor(private servicioParametrizacion: ParametrosService) {
 
+  constructor(
+    private servicio: InmuebleService
+    ){
   }
 
   ngOnInit() {
-    this.servicioParametrizacion.listarRegistros().subscribe({
+    this.servicio.listarRegistros().subscribe({
       next: (datos) => {
+        console.log(datos)
         this.listaRegistros = datos;
+        console.log(this.listaRegistros)
       },
-      error(err) {
+      error: (err) => {
 
-      },
-    });
+      }
+    })
   }
 
 }

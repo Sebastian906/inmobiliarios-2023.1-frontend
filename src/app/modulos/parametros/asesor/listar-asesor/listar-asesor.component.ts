@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AsesorModel } from 'src/app/modelos/asesor.model';
-import { ParametrosService } from 'src/app/servicios/parametros/inmueble.service';
 
 @Component({
   selector: 'app-listar-asesor',
